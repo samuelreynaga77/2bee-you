@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, serif;
+
+  --color-cream: #f8f1e3;
+  --color-card: #fffbf3;
+  --color-ink: #2a2824;
+  --color-muted: #5c564c;
+  --color-faint: #6f685e;
+  --color-line: #e6dcc8;
+  --color-honey: #c8892a;
+  --color-honey-deep: #6b4a16;
+  --color-sage: #3f6248;
+  --color-sage-soft: #e7f0e6;
+  --color-foam: #fff8ec;
+
+  --radius-control: 12px;
+  --radius-card: 28px;
+  --radius-chip: 999px;
+
+  --text-hero: clamp(2.45rem, 1.4rem + 4vw, 4.2rem);
+  --text-hero--line-height: 1.04;
+  --text-title: clamp(1.65rem, 1.25rem + 1.2vw, 2.3rem);
+  --text-title--line-height: 1.15;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html[data-text="lg"] {
+    font-size: 112.5%;
+  }
+
+  html[data-text="xl"] {
+    font-size: 125%;
+  }
+
+  body {
+    background: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-honey-deep);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: #f3e0b8;
+    color: var(--color-ink);
+  }
+}
+
+@utility step-in {
+  animation: rise 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-in {
+    animation: none;
+  }
+}
