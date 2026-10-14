@@ -135,7 +135,7 @@ test("deployed: the timeout is distinguishable from a rejection", async () => {
   await assert.rejects(deployed({ requestSignOut: rejects }).run(), /Sign-out failed/);
 });
 
-// ── Bounded wait (also used by `signIn`'s pre-sign-in session clear) ──────────
+// ── Bounded wait (also used by `signIn`'s pre-sign-in session clear) ────────
 
 test("settleWithin reports the outcome and never rejects", async () => {
   assert.equal(await settleWithin(() => Promise.resolve(), TEST_TIMEOUT_MS), "ok");
@@ -157,7 +157,7 @@ test("settleWithin waits its full window, then gives up rather than hanging", as
   assert.equal(outcome, "timeout", "the caller is never left waiting on a wedged request");
 });
 
-// ── Pre-sign-in session clear (`signIn`) ─────────────────────────────────────
+// ── Pre-sign-in session clear (`signIn`) ───────────────────────────────────────
 // Same per-environment bound as sign-out, but best effort: it also runs when
 // there is no prior session, so a failure must never block sign-in.
 
